@@ -18,7 +18,12 @@ describe('GET /', () => {
       .get('/')
       .expect('Content-Type', /html/)
       .expect(res => {
-        expect(res.text).toContain('This site is under construction...')
+        expect(res.text).toContain('One Plan Demo')
+        expect(res.text).toContain('PLP')
+        expect(res.text).toContain('Resettlement')
+        expect(res.text).toContain('Sentence Plan')
+        expect(res.text).toContain('Database Raw')
+        expect(res.text).toContain('Database with UI')
       })
   })
 })
