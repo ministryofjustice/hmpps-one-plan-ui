@@ -12,5 +12,25 @@ export default function routes(service: Services): Router {
     res.render('pages/index')
   })
 
+  get('/plp', (req, res, next) => {
+    res.render('pages/plp')
+  })
+
+  get('/resettlement', (req, res, next) => {
+    res.render('pages/resettlement')
+  })
+
+  get('/sentence-plan', (req, res, next) => {
+    res.render('pages/sentence-plan')
+  })
+
+  get('/db-ui', (req, res, next) => {
+    res.render('pages/db-ui')
+  })
+
+  get('/db-raw', (req, res, next) => {
+    res.render('pages/db-raw')
+  })
+
   return router
 }
