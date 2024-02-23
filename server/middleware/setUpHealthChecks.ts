@@ -2,14 +2,12 @@ import express, { Router } from 'express'
 
 import healthcheck from '../services/healthCheck'
 import type { ApplicationInfo } from '../applicationInfo'
-import logger from '../../logger'
 
 export default function setUpHealthChecks(applicationInfo: ApplicationInfo): Router {
   const router = express.Router()
 
   router.get('/health', (req, res, next) => {
     healthcheck(applicationInfo, result => {
-      logger.debug('Health check')
       if (result.status !== 'UP') {
         res.status(503)
       }
