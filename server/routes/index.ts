@@ -1,5 +1,4 @@
 import { type RequestHandler, Router } from 'express'
-import { randomUUID } from 'crypto'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 
