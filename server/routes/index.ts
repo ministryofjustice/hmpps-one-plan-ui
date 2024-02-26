@@ -1,5 +1,5 @@
 import { type RequestHandler, Router } from 'express'
-import csrf from 'csurf'
+import { randomUUID } from 'crypto'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 
@@ -37,15 +37,24 @@ export default function routes(service: Services): Router {
   })
 
   router.use('/post-objective', (req, res, next) => {
-    let { state, selectedPathway, _csrf }: { state?: string; selectedPathway?: string; _csrf?: string } = req.query
-    // If query parameters are not provided, try to get values from the request body
-    if (!state || !selectedPathway || !_csrf) {
-      const { state: bodyState, selectedPathway: bodyPathway, _csrf: bodyCsrf } = req.body
-      // Use the values from the request body if they exist
-      state = state || bodyState
-      selectedPathway = selectedPathway || bodyPathway
-      _csrf = _csrf || bodyCsrf
+    const queryObject = {
+      title: 'Chris Atkinson Objective 1',
+      targetCompletionDate: '2024-07-30',
+      status: 'IN_PROGRESS',
+      note: req.query['goal-detail'],
     }
+    fetch('https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives', {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${req.user.token}`,
+      },
+      body: JSON.stringify(queryObject),
+    }).then(_ => 'pages/post-objective')
     res.render('pages/post-objective')
   })
 
