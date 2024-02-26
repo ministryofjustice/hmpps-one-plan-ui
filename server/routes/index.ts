@@ -49,7 +49,7 @@ export default function routes(service: Services): Router {
         Authorization: `Bearer ${req.user.token}`,
       },
       body: JSON.stringify(queryObject),
-    }).then(_ => res.render('pages/post-objective'))
+    }).then(_ => res.render('pages/db-ui'))
   })
 
   return router
