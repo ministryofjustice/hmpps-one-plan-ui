@@ -1,5 +1,4 @@
 import { type RequestHandler, Router } from 'express'
-
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
 
@@ -30,6 +29,27 @@ export default function routes(service: Services): Router {
 
   get('/db-raw', (req, res, next) => {
     res.render('pages/db-raw')
+  })
+
+  router.use('/post-objective', (req, res, next) => {
+    const queryObject = {
+      title: 'Chris Atkinson Objective 1',
+      targetCompletionDate: '2024-07-30',
+      status: 'IN_PROGRESS',
+      note: req.query['goal-detail'],
+    }
+    fetch('https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives', {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${req.user.token}`,
+      },
+      body: JSON.stringify(queryObject),
+    }).then(_ => res.render('pages/post-objective'))
   })
 
   return router

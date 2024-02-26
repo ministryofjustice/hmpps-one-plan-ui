@@ -1,9 +1,131 @@
 {% extends "../partials/layout.njk" %}
 
 {% set pageTitle = applicationName + " - PLP" %}
-{% set mainClasses = "app-container govuk-body" %}
+{% set mainClasses = "app-container" %}
 
 {% block content %}
 
-<h1>PLP</h1>
+<div class="location-bar govuk-!-margin-right-0 govuk-!-margin-left-1">
+      <span class="location-bar__location" data-test="active-location">
+          <strong class="govuk-tag govuk-!-margin-right-1">PROTOTYPE</strong>
+          <span class="gtm-active-case-load">Hull (HMP)</span>
+      </span>
+    <a class="location-bar__link govuk-link--no-visited-state" href="#" data-test="change-location-link">Change your location</a>
+</div>
+
+<div>
+  <a class="govuk-back-link" href="/">Back</a>
+          
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="/post-objective">
+                <div class="govuk-form-group">
+                    <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--l" for="with-hint">
+                        Describe the goal you want to create for Chris Atkinson
+                    </label>
+                    </h1>
+                    <div id="more-detail-hint" class="govuk-hint">
+                        Goals should be SMART, meaning ‘specific’, ‘measurable’, ‘achievable’, ‘realistic’ and ‘time-bound’. SMART goals allow progress to be better measured and evaluated.
+                        <p>
+                            You can add the steps needed to achieve the goal on the next page.
+                        </p>
+                    </div>
+                    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="500">
+                        <div class="govuk-form-group">
+                            <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="goal-detail" rows="5" aria-describedby="with-hint" with-hint"></textarea>
+                            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+                                You can enter up to 500 characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend">
+                            <h3 class="govuk-heading-s">When are they aiming to achieve this by?</h3>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="goal-timeline-1" name="goal-timeline" type="radio" value="in 3 months">
+                                <label class="govuk-label govuk-radios__label" for="goal-timeline-1">
+                                    in 3 months (by 30 December 2023)
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="goal-timeline-2" name="goal-timeline" type="radio" value="in 6 months">
+                                <label class="govuk-label govuk-radios__label" name="goal-timeline-txt" for="goal-timeline-2">
+                                    in 6 months (by 30 July 2024)
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="goal-timeline-3" name="goal-timeline" type="radio" value="in 12 months">
+                                <label class="govuk-label govuk-radios__label" for="goal-timeline-3">
+                                    in 12 months (by 30 September 2024)
+                                </label>
+                            </div>
+                
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="goal-timeline-4" name="goal-timeline" type="radio" value="Set another date" aria-controls="conditional-goal-timeline-4" aria-expanded="false">
+                            
+                                <label class="govuk-label govuk-radios__label" for="goal-timeline-4">
+                                    set another date
+                                </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-goal-timeline-4">
+                                <div class="govuk-form-group">
+                                    <div class="govuk-form-group">
+                                        <fieldset class="govuk-fieldset" role="group" aria-describedby="goal-timeline-hint">
+                                            <div id="goal-timeline-hint" class="govuk-hint">
+                                                For example, 27 3 2007
+                                            </div>
+                                            <div class="govuk-date-input" id="goal-timeline">
+                                                <div class="govuk-date-input__item">
+                                                    <div class="govuk-form-group">
+                                                        <label class="govuk-label govuk-date-input__label" for="goal-timeline-day">
+                                                            Day
+                                                        </label>
+                                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="goal-timeline-day" name="goal-timeline-day" type="text" inputmode="numeric">
+                                                    </div>
+                                                </div>
+                                                <div class="govuk-date-input__item">
+                                                    <div class="govuk-form-group">
+                                                        <label class="govuk-label govuk-date-input__label" for="goal-timeline-month">
+                                                            Month
+                                                        </label>
+                                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="goal-timeline-month" name="goal-timeline-month" type="text" inputmode="numeric">
+                                                    </div>
+                                                </div>
+                                                <div class="govuk-date-input__item">
+                                                    <div class="govuk-form-group">
+                                                        <label class="govuk-label govuk-date-input__label" for="goal-timeline-year">
+                                                            Year
+                                                        </label>
+                                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="goal-timeline-year" name="goal-timeline-year" type="text" inputmode="numeric">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="moj-button-menu">
+                    <div class="moj-button-menu__wrapper">
+                        <button class="govuk-button" data-module="govuk-button">
+                            Continue to add steps
+                        </button>
+                    
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
