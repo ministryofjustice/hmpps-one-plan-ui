@@ -31,10 +31,6 @@ export default function routes(service: Services): Router {
     res.render('pages/db-raw')
   })
 
-  get('/db-raw', (req, res, next) => {
-    res.render('pages/db-raw')
-  })
-
   router.use('/post-objective', (req, res, next) => {
     const queryObject = {
       title: 'Chris Atkinson Objective 1',
