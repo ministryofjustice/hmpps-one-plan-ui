@@ -24,7 +24,19 @@ export default function routes(service: Services): Router {
   })
 
   get('/db-ui', (req, res, next) => {
-    res.render('pages/db-ui')
+    fetch(
+      'https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/plans/b8ac384d-de4b-4d44-8548-4ffafd6d954a/objectives',
+      {
+        method: 'GET',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        credentials: 'omit',
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${req.user.token}`,
+        },
+      },
+    ).then(_ => res.render('pages/db-ui'))
   })
 
   get('/db-raw', (req, res, next) => {
