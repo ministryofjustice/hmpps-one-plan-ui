@@ -19,19 +19,20 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h2>Take English GCSE</h2>
-        <h3>Steps</h3>
-        <ul>
-            <li>
-                <a class="govuk-link" href="#">Step One</a>
-            </li>
-            <li>
-                <a class="govuk-link" href="#">Step Two</a>
-            </li>
-            <li>
-                <a class="govuk-link" href="#">Step Three</a>
-            </li>
-        </ul>
+        <h2>Objectives</h2>
+        
+        {% for objective in objectives %}
+            <h3>{{ objective.title }}</h3>
+                <h4>Steps</h4>
+                <ul>
+                {% for step in objective.steps %}
+                    <li>
+                        <a class="govuk-link" href="#">{{ step.description }}</a>
+                    </li>
+                    </li>
+                {% endfor %}
+                </ul>
+        {% endfor %}
     </div>
 </div>
 
