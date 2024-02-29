@@ -10,3 +10,11 @@
 .steps-heading {
   font-weight: normal;
 }
+
+.crn-with-image {
+  display: flex;
+  img {
+    padding-top: 34px;
+    padding-right: 16px;
+  }
+}

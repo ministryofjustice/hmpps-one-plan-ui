@@ -5,8 +5,10 @@
 {% set mainClasses = "app-container govuk-body" %}
 
 {% block content %}
-    <!--<img width=32 height=32 src="assets/images/profile.png">-->
-    <h1 class="govuk-!-margin-bottom-0">CRN: 42378429378</h1>
+    <div class="crn-with-image">
+        <img alt="profile picture" width=32 height=32 src="assets/images/profile.png">
+        <h1 class="govuk-!-margin-bottom-0">CRN: 42378429378</h1>
+    </div>
     <hr>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
@@ -18,15 +20,12 @@
         </div>
     </div>
 
-
-    <h2>Objectives</h2>
-
     {% for objective in objectives %}
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <h3>{{ objective.title }}</h3>
+                <h2>{{ objective.title }}</h2>
                 {% if objective.steps.length > 0 %}
-                <h4 class="steps-heading">Steps</h4>
+                <h3 class="steps-heading">Steps</h3>
                 <ul>
                     {% for step in objective.steps %}
                         <li>
