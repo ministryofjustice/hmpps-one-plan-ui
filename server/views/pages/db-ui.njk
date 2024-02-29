@@ -1,9 +1,58 @@
 {% extends "../partials/layout.njk" %}
+{%- from "moj/components/badge/macro.njk" import mojBadge -%}
 
 {% set pageTitle = applicationName + " - Database with UI" %}
 {% set mainClasses = "app-container govuk-body" %}
 
 {% block content %}
+    <div class="crn-with-image">
+        <img alt="profile picture" width=32 height=32 src="assets/images/profile.png">
+        <h1 class="govuk-!-margin-bottom-0">CRN: 42378429378</h1>
+    </div>
+    <hr>
 
-<h1>Database With UI</h1>
+    {% for objective in objectives %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-body govuk-hint">
+                    Plan: {{ objectiveRefToPlanType[objective.reference] if objectiveRefToPlanType[objective.reference] else '-' }}</p>
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="objective-heading">{{ objective.title }}</h2>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        {{ mojBadge({
+                            text: objective.status
+                        }) }}
+                    </div>
+                </div>
+                {% if objective.steps.length > 0 %}
+                    <h3 class="steps-heading">Steps</h3>
+                    <ul>
+                        {% for step in objective.steps %}
+                            <li>
+                                <div class="govuk-grid-row">
+                                    <div class="govuk-grid-column-two-thirds">{{ step.description }}</div>
+                                    <div class="govuk-grid-column-one-third">
+                                        {{ mojBadge({
+                                            text: step.status
+                                        }) }}</div>
+                                </div>
+                            </li>
+                            {% if step.staffNote %}
+                                <p class="govuk-body govuk-hint">Staff Note: {{ step.staffNote }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <div class="govuk-grid-column-one-third objective-audit">
+                <p class="govuk-hint">Added by: {{ objective.createdBy }}</p>
+                <p class="govuk-hint">Added on: {{ formatDate(objective.createdAt) }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
 {% endblock %}
