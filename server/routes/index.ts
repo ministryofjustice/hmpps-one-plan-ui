@@ -1,6 +1,7 @@
 import { type RequestHandler, Router } from 'express'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
+import { getObjectiveData } from '../data/api'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function routes(service: Services): Router {
@@ -24,33 +25,8 @@ export default function routes(service: Services): Router {
   })
 
   get('/db-ui', (req, res, next) => {
-    fetch(
-      'https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/plans?includeObjectivesAndSteps=true',
-      {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        credentials: 'omit',
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${req.user.token}`,
-        },
-      },
-    ).then(_ => {
-      fetch(`https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives?includeSteps=true`, {
-        method: 'GET',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        credentials: 'omit',
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${req.user.token}`,
-        },
-      }).then(objResp => {
-        objResp.json().then(objectives => {
-          return res.render('pages/db-ui', { objectives })
-        })
-      })
+    getObjectiveData(req.user.token).then(({ objectives, objectiveRefToPlanType }) => {
+      res.render('pages/db-ui', { objectives, objectiveRefToPlanType, formatDate })
     })
   })
 
@@ -80,4 +56,11 @@ export default function routes(service: Services): Router {
   })
 
   return router
+}
+
+const formatDate = (dateString: string, monthStyle: 'short' | 'long' = 'short'): string => {
+  if (!dateString) return null
+  const date = new Date(dateString)
+  const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: monthStyle, year: 'numeric' }
+  return date.toLocaleDateString('en-GB', options)
 }

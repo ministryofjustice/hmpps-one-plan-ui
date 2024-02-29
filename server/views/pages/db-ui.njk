@@ -10,20 +10,12 @@
         <h1 class="govuk-!-margin-bottom-0">CRN: 42378429378</h1>
     </div>
     <hr>
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body govuk-hint">Plan: English</p>
-        </div>
-        <div class="govuk-grid-column-one-third">
-            <p class="govuk-body govuk-hint">Added by: D. Jones (POM)</p>
-            <p class="govuk-body govuk-hint">Added on: 2nd Fed 2024</p>
-        </div>
-    </div>
 
     {% for objective in objectives %}
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
-                <h2>{{ objective.title }}</h2>
+                <p class="govuk-body govuk-hint">Plan: {{ objectiveRefToPlanType[objective.reference] if objectiveRefToPlanType[objective.reference] else '-' }}</p>
+                <h2 class="objective-heading">{{ objective.title }}</h2>
                 {% if objective.steps.length > 0 %}
                 <h3 class="steps-heading">Steps</h3>
                 <ul>
@@ -43,7 +35,7 @@
             </div>
             <div class="govuk-grid-column-one-third objective-audit">
                 <p class="govuk-hint">Added by: {{ objective.createdBy }}</p>
-                <p class="govuk-hint">Added on: {{ objective.createdAt }}</p>
+                <p class="govuk-hint">Added on: {{ formatDate(objective.createdAt) }}</p>
             </div>
         </div>
     {% endfor %}

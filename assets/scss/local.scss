@@ -9,6 +9,7 @@
 
 .steps-heading {
   font-weight: normal;
+  margin: 0;
 }
 
 .crn-with-image {
@@ -17,4 +18,9 @@
     padding-top: 34px;
     padding-right: 16px;
   }
+}
+
+.objective-heading {
+  margin-block-start: 0;
+  margin-block-end: 0.43em;
 }
