@@ -33,10 +33,9 @@ export default function routes(service: Services): Router {
 
   router.use('/post-objective', (req, res, next) => {
     const queryObject = {
-      title: 'Chris Atkinson Objective 1',
+      title: req.query['goal-detail'],
       targetCompletionDate: '2024-07-30',
       status: 'IN_PROGRESS',
-      note: req.query['goal-detail'],
     }
     fetch('https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives', {
       method: 'POST',
