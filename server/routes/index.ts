@@ -1,7 +1,8 @@
 import { type RequestHandler, Router } from 'express'
 import asyncMiddleware from '../middleware/asyncMiddleware'
 import type { Services } from '../services'
-import { getObjectiveData } from '../data/api'
+import { getObjectiveData, resetDemoData } from '../data/api'
+import config from '../config'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function routes(service: Services): Router {
@@ -9,7 +10,7 @@ export default function routes(service: Services): Router {
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
   get('/', (req, res, next) => {
-    res.render('pages/index')
+    res.render('pages/index', { reset: req.query.reset })
   })
 
   get('/plp', (req, res, next) => {
@@ -51,7 +52,7 @@ export default function routes(service: Services): Router {
       targetCompletionDate,
       status: 'NOT_STARTED',
     }
-    fetch('https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives', {
+    fetch(`${config.apis.onePlanApi.url}/person/12345678/objectives`, {
       method: 'POST',
       mode: 'no-cors',
       cache: 'no-cache',
@@ -63,6 +64,10 @@ export default function routes(service: Services): Router {
       },
       body: JSON.stringify(queryObject),
     }).then(_ => res.render('pages/db-ui'))
+  })
+
+  router.post('/reset-data', (req, res) => {
+    resetDemoData(req.user.token).then(() => res.redirect('/?reset=true'))
   })
 
   return router
