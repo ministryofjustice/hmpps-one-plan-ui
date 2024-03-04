@@ -35,11 +35,21 @@ export default function routes(service: Services): Router {
   })
 
   router.use('/post-objective', (req, res, next) => {
+    const dateString = req.query['goal-timeline'] as string
+    let targetCompletionDate
+    if (dateString.includes('3')) {
+      targetCompletionDate = '2023-12-30'
+    } else if (dateString.includes('6')) {
+      targetCompletionDate = '2024-07-30'
+    } else if (dateString.includes('12')) {
+      targetCompletionDate = '2024-09-30'
+    } else {
+      targetCompletionDate = `${req.query['goal-timeline-year']}-${req.query['goal-timeline-month']}-${req.query['goal-timeline-day']}`
+    }
     const queryObject = {
-      title: 'Chris Atkinson Objective 1',
-      targetCompletionDate: '2024-07-30',
-      status: 'IN_PROGRESS',
-      note: req.query['goal-detail'],
+      title: req.query['goal-detail'],
+      targetCompletionDate,
+      status: 'NOT_STARTED',
     }
     fetch('https://one-plan-api-dev.hmpps.service.justice.gov.uk/person/12345678/objectives', {
       method: 'POST',
