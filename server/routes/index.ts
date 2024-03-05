@@ -70,10 +70,6 @@ export default function routes(service: Services): Router {
     resetDemoData(req.user.token).then(() => res.redirect('/?reset=true'))
   })
 
-  router.post('/reset-data', (req, res) => {
-    resetDemoData(req.user.token).then(() => res.redirect('/?reset=true'))
-  })
-
   return router
 }
 
