@@ -29,393 +29,180 @@
     <a href="/" class="govuk-back-link">Back</a>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Add actions to the objective</h1>
-        <h2 class="govuk-heading-m">Action</h2>
-        <form method="post" novalidate>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                        <h1 class="govuk-fieldset__heading"> Will this action come from the National Interventions List? </h1>
-                    </legend>
-                    <div id="contact-hint" class="govuk-hint"> Select one option. </div>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="actionType-yes" name="actionType" type="radio" value="intervention" aria-expanded="false">
-                        <label class="govuk-label govuk-radios__label" for="actionType-yes">
-                            Yes
-                        </label>
-                        </div>
-                        <div class="govuk-radios__item"> <input class="govuk-radios__input" id="actionType-no" name="actionType" type="radio" value="no" data-aria-controls="conditional-actionType-no"> <label class="govuk-label govuk-radios__label" for="actionType-no"> No </label> </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType-no">
-                            <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="50">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-label--l" for="with-hint">
-                                    What action are they going to take?
+            <h1 class="govuk-heading-l">Add actions to the objective</h1>
+            <h2 class="govuk-heading-m">Action</h2>
+            <form method="post" novalidate>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading"> Will this action come from the National Interventions List? </h1>
+                        </legend>
+                        <div id="contact-hint" class="govuk-hint"> Select one option. </div>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="actionType-yes" name="actionType" type="radio" value="intervention" aria-expanded="false">
+                                <label class="govuk-label govuk-radios__label" for="actionType-yes">
+                                    Yes
                                 </label>
-                                <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
                             </div>
-                            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-                                You can enter up to 50 words
+                            <div class="govuk-radios__item"> 
+                                <input class="govuk-radios__input" id="actionType-no" name="actionType" type="radio" value="no" data-aria-controls="conditional-actionType-no"> 
+                                <label class="govuk-label govuk-radios__label" for="actionType-no"> No </label> 
                             </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        What is the target date for the action to be finished?
-                    </legend>
-                    <div class="govuk-date-input" id="target-date">
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="target-date-Month">
-                                    Month
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="target-date-Month" name="target-date-Month" type="text" value="" pattern="[0-9]*" inputmode="numeric">
-                            </div>
-                        </div>
-                        <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="target-date-Year">
-                                    Year
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="target-date-Year" name="target-date-Year" type="text" value="" pattern="[0-9]*" inputmode="numeric">
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        How motivated is the individual to start or complete this action?
-                    </legend>
-                    <div class="govuk-radios govuk-radios--small">
-                        <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa1">
-                            <label class="govuk-label govuk-radios__label" for="motivation">
-                            In the dark
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-2" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa2">
-                            <label class="govuk-label govuk-radios__label" for="motivation-2">
-                            Thinking about it
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-3" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa3">
-                            <label class="govuk-label govuk-radios__label" for="motivation-3">
-                            Getting ready
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-4" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa4">
-                            <label class="govuk-label govuk-radios__label" for="motivation-4">
-                            Doing it
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-5" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa5">
-                            <label class="govuk-label govuk-radios__label" for="motivation-5">
-                            Keeping going
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-6" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa6">
-                            <label class="govuk-label govuk-radios__label" for="motivation-6">
-                            Off track
-                        </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="motivation-7" name="motivation" type="radio" value="42de6207-7a3a-4ffb-9b45-c3ee4ea514fa">
-                            <label class="govuk-label govuk-radios__label" for="motivation-7">
-                            The new me
-                            </label>
-                            </div>
-                        </div>
-                </fieldset>
-            </div>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Who will make sure the action is done?
-                    </legend>
-                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="responsibility" name="responsibility" type="checkbox" value="SERVICE_USER">
-                        <label class="govuk-label govuk-checkboxes__label" for="responsibility">
-                        Individual
-                    </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="responsibility-2" name="responsibility" type="checkbox" value="PRACTITIONER">
-                        <label class="govuk-label govuk-checkboxes__label" for="responsibility-2">
-                        Offender manager
-                    </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="responsibility-3" name="responsibility" type="checkbox" value="OTHER" aria-controls="conditional-responsibility-3" aria-expanded="false">
-                        <label class="govuk-label govuk-checkboxes__label" for="responsibility-3">
-                        Other
-                    </label>
-                        </div>
-                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-responsibility-3">
-                            <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-input--width-20" id="responsibilityOther" name="responsibilityOther" type="text" value="">
-                </div>
-
-
-                        </div>
-                </div>
-                </fieldset>
-            </div>
-            <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Status
-                    </legend>
-                <div class="govuk-radios govuk-radios--small">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="status" name="status" type="radio" value="NOT_STARTED">
-                        <label class="govuk-label govuk-radios__label" for="status">
-                            To do
-                        </label>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="status-2" name="status" type="radio" value="IN_PROGRESS">
-                        <label class="govuk-label govuk-radios__label" for="status-2">
-                            In progress
-                        </label>
-                    </div>
-                </div>
-                </fieldset>
-            </div>
-            <button name="addAnotherAction" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-  Add another action
-</button>
-<button name="continue" class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
-<p>or <a class="govuk-link" href="/individual-id/1/plan/6/objective/1">cancel</a></p>
-        </form>
-    </div>
-</div>
-
-            <!-- <form method="post" novalidate="">
-               <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Will this action come from the National Interventions List?
-                     </legend>
-                     <div class="govuk-radios govuk-radios--small govuk-radios--conditional" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="actionType" name="actionType" type="radio" value="intervention" aria-controls="conditional-actionType" aria-expanded="false">
-                           <label class="govuk-label govuk-radios__label" for="actionType">
-                           Yes
-                           </label>
-                        </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType">
-                           <div class="govuk-form-group ">
-                              <label class="govuk-label" for="intervention">What intervention are they going to take?</label>
-                              <div>
-                                 <div class="autocomplete__wrapper">
-                                    <div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                                       <div id="intervention__status--A" role="status" aria-atomic="true" aria-live="polite"></div>
-                                       <div id="intervention__status--B" role="status" aria-atomic="true" aria-live="polite"></div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType-no">
+                                <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="50">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-label--l" for="with-hint">
+                                            What action are they going to take?
+                                        </label>
+                                        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
                                     </div>
-                                    <input aria-expanded="false" aria-owns="intervention__listbox" aria-autocomplete="list" aria-describedby="intervention__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--show-all-values" id="intervention" name="" placeholder="" type="text" role="combobox">
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="autocomplete__dropdown-arrow-down" focusable="false">
-                                       <g stroke="none" fill="none" fill-rule="evenodd">
-                                          <polygon fill="#000000" points="0 0 22 0 11 17"></polygon>
-                                       </g>
-                                    </svg>
-                                    <ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="intervention__listbox" role="listbox"></ul>
-                                    <span id="intervention__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span>
-                                 </div>
-                              </div>
-                              <select id="intervention-select" name="intervention" class="govuk-body" style="display: none;">
-                                 <option value="">Please select from the list</option>
-                                 <option value="int1">Intervention 1</option>
-                                 <option value="3fa85f64-5717-4562-b3fc-2c963f66afa2">Intervention 2</option>
-                                 <option value="3fa85f64-5717-4562-b3fc-2c963f66afa3">Intervention 3</option>
-                                 <option value="3fa85f64-5717-4562-b3fc-2c963f66afa4">Intervention 4</option>
-                                 <option value="3fa85f64-5717-4562-b3fc-2c963f66afa5">Intervention 5</option>
-                                 <option value="29348eac-0034-4fc4-b045-fb3be9c7a28f">Thinking Skills - SO</option>
-                              </select>
-                              <script>
-                                 window.accessibleAutocomplete.enhanceSelectElement({
-                                   selectElement: document.querySelector('#intervention'),
-                                   showAllValues: true,
-                                   autoselect: false,
-                                   defaultValue: '',
-                                 })
-                              </script>
-                           </div>
+                                    <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+                                        You can enter up to 50 words
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="actionType-2" name="actionType" type="radio" value="description" aria-controls="conditional-actionType-2" aria-expanded="false">
-                           <label class="govuk-label govuk-radios__label" for="actionType-2">
-                           No
-                           </label>
-                        </div>
-                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType-2">
-                           <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="50">
-                              <div class="govuk-form-group">
-                                 <h1 class="govuk-label-wrapper"><label class="govuk-label" for="description">
-                                    What action are they going to take?
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" role="group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            What is the target date for the action to be finished?
+                        </legend>
+                        <div class="govuk-date-input" id="target-date">
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="target-date-Month">
+                                        Month
                                     </label>
-                                 </h1>
-                                 <textarea class="govuk-textarea govuk-js-character-count" id="description" name="description" rows="5" aria-describedby="description-info"></textarea>
-                                 <span id="description-info" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 50 words remaining</span>
-                              </div>
-                           </div>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="target-date-Month" name="target-date-Month" type="text" value="" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                            </div>
+                            <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="target-date-Year">
+                                        Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="target-date-Year" name="target-date-Year" type="text" value="" pattern="[0-9]*" inputmode="numeric">
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset" role="group">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        What is the target date for the action to be finished?
-                     </legend>
-                     <div class="govuk-date-input" id="target-date">
-                        <div class="govuk-date-input__item">
-                           <div class="govuk-form-group">
-                              <label class="govuk-label govuk-date-input__label" for="target-date-Month">
-                              Month
-                              </label>
-                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="target-date-Month" name="target-date-Month" type="text" value="" pattern="[0-9]*" inputmode="numeric">
-                           </div>
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            How motivated is the individual to start or complete this action?
+                        </legend>
+                        <div class="govuk-radios govuk-radios--small">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa1">
+                                <label class="govuk-label govuk-radios__label" for="motivation">
+                                    In the dark
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-2" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa2">
+                                <label class="govuk-label govuk-radios__label" for="motivation-2">
+                                    Thinking about it
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-3" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa3">
+                                <label class="govuk-label govuk-radios__label" for="motivation-3">
+                                    Getting ready
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-4" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa4">
+                                <label class="govuk-label govuk-radios__label" for="motivation-4">
+                                    Doing it
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-5" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa5">
+                                <label class="govuk-label govuk-radios__label" for="motivation-5">
+                                    Keeping going
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-6" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa6">
+                                <label class="govuk-label govuk-radios__label" for="motivation-6">
+                                    Off track
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="motivation-7" name="motivation" type="radio" value="42de6207-7a3a-4ffb-9b45-c3ee4ea514fa">
+                                <label class="govuk-label govuk-radios__label" for="motivation-7">
+                                    The new me
+                                </label>
+                            </div>
                         </div>
-                        <div class="govuk-date-input__item">
-                           <div class="govuk-form-group">
-                              <label class="govuk-label govuk-date-input__label" for="target-date-Year">
-                              Year
-                              </label>
-                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="target-date-Year" name="target-date-Year" type="text" value="" pattern="[0-9]*" inputmode="numeric">
-                           </div>
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            Who will make sure the action is done?
+                        </legend>
+                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="responsibility" name="responsibility" type="checkbox" value="SERVICE_USER">
+                                <label class="govuk-label govuk-checkboxes__label" for="responsibility">
+                                    Individual
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="responsibility-2" name="responsibility" type="checkbox" value="PRACTITIONER">
+                                <label class="govuk-label govuk-checkboxes__label" for="responsibility-2">
+                                    Offender manager
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="responsibility-3" name="responsibility" type="checkbox" value="OTHER" aria-controls="conditional-responsibility-3" aria-expanded="false">
+                                <label class="govuk-label govuk-checkboxes__label" for="responsibility-3">
+                                    Other
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-responsibility-3">
+                                <div class="govuk-form-group">
+                                    <input class="govuk-input govuk-input--width-20" id="responsibilityOther" name="responsibilityOther" type="text" value="">
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        How motivated is the individual to start or complete this action?
-                     </legend>
-                     <div class="govuk-radios govuk-radios--small">
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa1">
-                           <label class="govuk-label govuk-radios__label" for="motivation">
-                           In the dark
-                           </label>
+                    </fieldset>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            Status
+                        </legend>
+                        <div class="govuk-radios govuk-radios--small">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="status" name="status" type="radio" value="NOT_STARTED">
+                                <label class="govuk-label govuk-radios__label" for="status">
+                                    To do
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="status-2" name="status" type="radio" value="IN_PROGRESS">
+                                <label class="govuk-label govuk-radios__label" for="status-2">
+                                    In progress
+                                </label>
+                            </div>
                         </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-2" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa2">
-                           <label class="govuk-label govuk-radios__label" for="motivation-2">
-                           Thinking about it
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-3" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa3">
-                           <label class="govuk-label govuk-radios__label" for="motivation-3">
-                           Getting ready
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-4" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa4">
-                           <label class="govuk-label govuk-radios__label" for="motivation-4">
-                           Doing it
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-5" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa5">
-                           <label class="govuk-label govuk-radios__label" for="motivation-5">
-                           Keeping going
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-6" name="motivation" type="radio" value="3fa85f64-5717-4562-b3fc-2c963f66afa6">
-                           <label class="govuk-label govuk-radios__label" for="motivation-6">
-                           Off track
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="motivation-7" name="motivation" type="radio" value="42de6207-7a3a-4ffb-9b45-c3ee4ea514fa">
-                           <label class="govuk-label govuk-radios__label" for="motivation-7">
-                           The new me
-                           </label>
-                        </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Who will make sure the action is done?
-                     </legend>
-                     <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                        <div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="responsibility" name="responsibility" type="checkbox" value="SERVICE_USER">
-                           <label class="govuk-label govuk-checkboxes__label" for="responsibility">
-                           Individual
-                           </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="responsibility-2" name="responsibility" type="checkbox" value="PRACTITIONER">
-                           <label class="govuk-label govuk-checkboxes__label" for="responsibility-2">
-                           Offender manager
-                           </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                           <input class="govuk-checkboxes__input" id="responsibility-3" name="responsibility" type="checkbox" value="OTHER" aria-controls="conditional-responsibility-3" aria-expanded="false">
-                           <label class="govuk-label govuk-checkboxes__label" for="responsibility-3">
-                           Other
-                           </label>
-                        </div>
-                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-responsibility-3">
-                           <div class="govuk-form-group">
-                              <input class="govuk-input govuk-input--width-20" id="responsibilityOther" name="responsibilityOther" type="text" value="">
-                           </div>
-                        </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                        Status
-                     </legend>
-                     <div class="govuk-radios govuk-radios--small">
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="status" name="status" type="radio" value="NOT_STARTED">
-                           <label class="govuk-label govuk-radios__label" for="status">
-                           To do
-                           </label>
-                        </div>
-                        <div class="govuk-radios__item">
-                           <input class="govuk-radios__input" id="status-2" name="status" type="radio" value="IN_PROGRESS">
-                           <label class="govuk-label govuk-radios__label" for="status-2">
-                           In progress
-                           </label>
-                        </div>
-                     </div>
-                  </fieldset>
-               </div>
-               <button name="addAnotherAction" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-               Add another action
-               </button>
-               <button name="continue" class="govuk-button" data-module="govuk-button">
-               Continue
-               </button>
-               <p>or <a class="govuk-link" href="/individual-id/1/plan/6/objective/1">cancel</a></p>
-            </form>-->
-         </div>
-      </div>
-   </main>
+                    </fieldset>
+                </div>
+                <button name="addAnotherAction" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add another action
+                </button>
+                <button name="continue" class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+                <p>or <a class="govuk-link" href="/individual-id/1/plan/6/objective/1">cancel</a></p>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
