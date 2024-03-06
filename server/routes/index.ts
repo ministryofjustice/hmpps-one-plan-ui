@@ -63,7 +63,7 @@ export default function routes(service: Services): Router {
         Authorization: `Bearer ${req.user.token}`,
       },
       body: JSON.stringify(queryObject),
-    }).then(_ => res.redirect('pages/db-ui'))
+    }).then(_ => res.redirect('/db-ui'))
   })
 
   router.post('/reset-data', (req, res) => {
