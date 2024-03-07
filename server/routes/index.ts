@@ -22,7 +22,11 @@ export default function routes(service: Services): Router {
   })
 
   get('/sentence-plan', (req, res, next) => {
-    res.render('pages/sentence-plan')
+    res.render('pages/sentence-plan1')
+  })
+
+  get('/sentence-plan-2', (req, res, next) => {
+    res.render('pages/sentence-plan2')
   })
 
   get('/db-ui', (req, res, next) => {
