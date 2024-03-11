@@ -9,3 +9,13 @@ $govuk-page-width: $moj-page-width;
 
 @import './components/header-bar';
 @import 'assets/scss/local';
+
+.govuk-radios--conditional {
+    width: fit-content;
+}
+
+.govuk-error-message {
+    &.govuk-inline-error {
+        display: inline;
+    }
+}

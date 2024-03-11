@@ -1,0 +1,122 @@
+{% extends "../partials/layout.njk" %}
+
+{% set pageTitle = applicationName + " - Sentence Plan" %}
+{% set mainClasses = "app-container govuk-body" %}
+
+{% block content %}
+<div class="moj-header__container">
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">
+                beta
+            </strong>
+            <span class="govuk-phase-banner__text">
+                This is a new service – your <a class="govuk-link" href="https://www.research.net/r/9P3F9FF">feedback</a> will help us to improve it.
+            </span>
+        </p>
+    </div>
+</div>
+<div class="moj-identity-bar">
+  <div class="moj-identity-bar__container">
+    <div class="moj-identity-bar__details">
+        <h1 class="govuk-heading-xl">Bernard Connor</h1>
+        <p class="govuk-body">CRN: <b>D002548</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-width-container ">
+    <a href="/" class="govuk-back-link">Back</a>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form method="post" action="/sentence-plan-2" novalidate>
+                <h2 class="govuk-heading-l">Add an objective</h2>
+
+                <div class="govuk-inset-text">
+                    You'll be able to add actions for this objective next.
+                </div>
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="150">
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="objective">
+                                Objective description
+                            </label>
+                        </h1>
+                        <div id="with-hint-hint" class="govuk-hint">
+                            What does the individual need to achieve?
+                        </div>
+                        <textarea class="govuk-textarea govuk-js-character-count" id="word-count" name="objective" rows="5" aria-describedby="word-count-info"></textarea>
+                    </div>
+                    <div id="word-count-info" class="govuk-hint govuk-character-count__message">
+                        You have 50 words remaining
+                    </div>
+                </div>
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="needs-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h1 class="govuk-fieldset__heading">
+                                Needs identified in OASys related to this objective
+                            </h1>
+                        </legend>
+                        <div id="needs-hint" class="govuk-hint">
+                            Select all that apply.
+                        </div>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs" name="needs" type="checkbox" value="accomodation">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs">
+                                    Accomodation - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-2" name="needs" type="checkbox" value="alcohol">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-2">
+                                    Alcohol misuse
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-3" name="needs" type="checkbox" value="emotional">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-3">
+                                    Emotional well-being
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-4" name="needs" type="checkbox" value="ete">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-4">
+                                    ETE - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-5" name="needs" type="checkbox" value="finance">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-5">
+                                    Finance - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-6" name="needs" type="checkbox" value="relationships">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-6">
+                                    Relationships - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="needs-7" name="needs" type="checkbox" value="behaviour">
+                                <label class="govuk-label govuk-checkboxes__label" for="needs-7">
+                                    Thinking and behaviour - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button name="continue" class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+                <p>or <a class="govuk-link" href="/">cancel</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

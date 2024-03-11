@@ -9,33 +9,82 @@ export default function routes(service: Services): Router {
   const router = Router()
   const get = (path: string | string[], handler: RequestHandler) => router.get(path, asyncMiddleware(handler))
 
-  get('/', (req, res, next) => {
+  get('/', (req, res) => {
     res.render('pages/index', { reset: req.query.reset })
   })
 
-  get('/plp', (req, res, next) => {
+  get('/plp', (_, res) => {
     res.render('pages/plp')
   })
 
-  get('/resettlement', (req, res, next) => {
+  get('/resettlement', (req, res) => {
     res.render('pages/resettlement')
   })
 
-  get('/sentence-plan', (req, res, next) => {
-    res.render('pages/sentence-plan')
+  get('/sentence-plan', (req, res) => {
+    res.render('pages/sentence-plan1')
   })
 
-  get('/db-ui', (req, res, next) => {
+  router.post('/sentence-plan-2', (req, res) => {
+    const queryObject = {
+      title: req.body.objective,
+      targetCompletionDate: '2024-09-11',
+      status: 'NOT_STARTED',
+    }
+    fetch(`${config.apis.onePlanApi.url}/person/12345678/objectives`, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${req.user.token}`,
+      },
+      body: JSON.stringify(queryObject),
+    }).then(resp => {
+      resp.json().then(body => res.render('pages/sentence-plan2', { objectiveReference: body.reference }))
+    })
+  })
+
+  router.post('/sentence-plan-action', (req, res) => {
+    const queryObject = {
+      description: req.body.intervention ?? req.body.withHint,
+      targetCompletionDate: `${req.body['target-date-Year']}-${req.body['target-date-Month']}-01`,
+      status: req.body.status,
+      staffTask: req.body.responsibility === 'SERVICE_USER',
+    }
+    fetch(`${config.apis.onePlanApi.url}/person/12345678/objectives/${req.body.objective}/steps`, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${req.user.token}`,
+      },
+      body: JSON.stringify(queryObject),
+    }).then(_ => {
+      if (req.body.continue === '') {
+        res.redirect('/db-ui')
+      } else {
+        res.render('pages/sentence-plan2', { objectiveReference: req.body.objective })
+      }
+    })
+  })
+
+  get('/db-ui', (req, res) => {
     getObjectiveData(req.user.token).then(({ objectives, objectiveRefToPlanType }) => {
       res.render('pages/db-ui', { objectives, objectiveRefToPlanType, formatDate })
     })
   })
 
-  get('/db-raw', (req, res, next) => {
+  get('/db-raw', (_, res) => {
     res.render('pages/db-raw')
   })
 
-  router.use('/post-objective', (req, res, next) => {
+  router.post('/post-objective', (req, res) => {
     const dateString = req.query['goal-timeline'] as string
     let targetCompletionDate
     if (dateString.includes('3')) {
@@ -68,6 +117,22 @@ export default function routes(service: Services): Router {
 
   router.post('/reset-data', (req, res) => {
     resetDemoData(req.user.token).then(() => res.redirect('/?reset=true'))
+  })
+
+  router.post('/sentence-plan', (req, res) => {
+    const queryObject = {}
+    fetch(`${config.apis.onePlanApi.url}/person/12345678/objectives`, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${req.user.token}`,
+      },
+      body: JSON.stringify(queryObject),
+    }).then(_ => res.redirect('/db-ui'))
   })
 
   return router
