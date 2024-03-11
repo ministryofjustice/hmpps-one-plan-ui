@@ -67,7 +67,7 @@ export default function routes(service: Services): Router {
       body: JSON.stringify(queryObject),
     }).then(_ => {
       if (req.body.continue === '') {
-        res.redirect('db-ui')
+        res.redirect('/db-ui')
       } else {
         res.render('pages/sentence-plan2', { objectiveReference: req.body.objective })
       }
@@ -112,7 +112,7 @@ export default function routes(service: Services): Router {
         Authorization: `Bearer ${req.user.token}`,
       },
       body: JSON.stringify(queryObject),
-    }).then(_ => res.redirect('db-ui'))
+    }).then(_ => res.redirect('/db-ui'))
   })
 
   router.post('/reset-data', (req, res) => {
@@ -132,7 +132,7 @@ export default function routes(service: Services): Router {
         Authorization: `Bearer ${req.user.token}`,
       },
       body: JSON.stringify(queryObject),
-    }).then(_ => res.redirect('db-ui'))
+    }).then(_ => res.redirect('/db-ui'))
   })
 
   return router
