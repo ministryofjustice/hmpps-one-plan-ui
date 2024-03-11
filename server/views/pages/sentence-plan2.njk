@@ -24,14 +24,13 @@
     </div>
   </div>
 </div>
-
 <div class="govuk-width-container">
-    <a href="/" class="govuk-back-link">Back</a>
+    <a href="/sentence-plan" class="govuk-back-link">Back</a>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Add actions to the objective</h1>
             <h2 class="govuk-heading-m">Action</h2>
-            <form method="post" novalidate>
+            <form method="post" action="/sentence-plan-action" novalidate>
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -39,10 +38,28 @@
                         </legend>
                         <div class="govuk-radios govuk-radios--small govuk-radios--conditional" data-module="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="actionType-yes" name="actionType" type="radio" value="intervention" aria-expanded="false">
+                                <input class="govuk-radios__input" id="actionType-yes" name="actionType" type="radio" value="yes" data-aria-controls="conditional-actionType-yes">
                                 <label class="govuk-label govuk-radios__label" for="actionType-yes">
                                     Yes
                                 </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType-yes">
+                                <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="50">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="intervention">
+                                            What interventions are they going to take?
+                                        </label>
+                                        <select class="govuk-select__conditional __conditional--hidden govuk-select" id="intervention-select" name="intervention">
+                                            <option value selected disabled hidden>Please select from list</option>
+                                            <option value="Intervention 1">Intervention 1</option>
+                                            <option value="Intervention 2">Intervention 2</option>
+                                            <option value="Intervention 3">Intervention 3</option>
+                                            <option value="Intervention 4">Intervention 4</option>
+                                            <option value="Intervention 5">Intervention 5</option>
+                                            <option value="Thinking Skills - SO">Thinking Skills - SO</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="govuk-radios__item"> 
                                 <input class="govuk-radios__input" id="actionType-no" name="actionType" type="radio" value="no" data-aria-controls="conditional-actionType-no"> 
@@ -51,7 +68,7 @@
                             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-actionType-no">
                                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="50">
                                     <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-label--l" for="with-hint">
+                                        <label class="govuk-label govuk-label--m" for="with-hint">
                                             What action are they going to take?
                                         </label>
                                         <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
@@ -192,14 +209,15 @@
                             </div>
                         </div>
                     </fieldset>
+                    <input type="hidden" name="objective" value={{ objectiveReference }} />
+                    <button name="addAnotherAction" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                        Add another action
+                    </button>
+                    <button name="continue" class="govuk-button" data-module="govuk-button">
+                        Continue
+                    </button>
+                    <p>or <a class="govuk-link" href="/">cancel</a></p>
                 </div>
-                <button name="addAnotherAction" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Add another action
-                </button>
-                <button name="continue" class="govuk-button" data-module="govuk-button">
-                    Continue
-                </button>
-                <p>or <a class="govuk-link" href="/">cancel</a></p>
             </form>
         </div>
     </div>

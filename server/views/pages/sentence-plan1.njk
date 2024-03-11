@@ -29,7 +29,7 @@
     <a href="/" class="govuk-back-link">Back</a>
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form method="post" novalidate>
+            <form method="post" action="/sentence-plan-2" novalidate>
                 <h2 class="govuk-heading-l">Add an objective</h2>
 
                 <div class="govuk-inset-text">
@@ -38,14 +38,14 @@
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxwords="150">
                     <div class="govuk-form-group">
                         <h1 class="govuk-label-wrapper">
-                            <label class="govuk-label govuk-label--m" for="word-count">
+                            <label class="govuk-label govuk-label--m" for="objective">
                                 Objective description
                             </label>
                         </h1>
                         <div id="with-hint-hint" class="govuk-hint">
                             What does the individual need to achieve?
                         </div>
-                        <textarea class="govuk-textarea govuk-js-character-count" id="word-count" name="wordCount" rows="5" aria-describedby="word-count-info"></textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" id="word-count" name="objective" rows="5" aria-describedby="word-count-info"></textarea>
                     </div>
                     <div id="word-count-info" class="govuk-hint govuk-character-count__message">
                         You have 50 words remaining
@@ -65,7 +65,7 @@
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="needs" name="needs" type="checkbox" value="accomodation">
                                 <label class="govuk-label govuk-checkboxes__label" for="needs">
-                                    Accomodation - <span>Risk of serious harm</span>
+                                    Accomodation - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
@@ -83,25 +83,25 @@
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="needs-4" name="needs" type="checkbox" value="ete">
                                 <label class="govuk-label govuk-checkboxes__label" for="needs-4">
-                                    ETE - <span>Risk of serious harm</span>
+                                    ETE - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="needs-5" name="needs" type="checkbox" value="finance">
                                 <label class="govuk-label govuk-checkboxes__label" for="needs-5">
-                                    Finance - <span>Risk of serious harm</span>
+                                    Finance - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="needs-6" name="needs" type="checkbox" value="relationships">
                                 <label class="govuk-label govuk-checkboxes__label" for="needs-6">
-                                    Relationships - <span>Risk of serious harm</span>
+                                    Relationships - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
                                 </label>
                             </div>
                             <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="needs-7" name="needs" type="checkbox" value="behaviour">
                                 <label class="govuk-label govuk-checkboxes__label" for="needs-7">
-                                    Thinking and behaviour - <span>Risk of serious harm</span>
+                                    Thinking and behaviour - <span class="govuk-error-message govuk-inline-error">Risk of serious harm</span>
                                 </label>
                             </div>
                         </div>
